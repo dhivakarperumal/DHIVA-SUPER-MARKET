@@ -21,6 +21,10 @@ const Header = () => {
 
           {/* Left */}
           <div className="flex items-center gap-4 font-medium">
+            <div className="flex items-center gap-2">
+              <MapPin size={16} className="text-white" />
+              <span>Deliver to: 122, Sollaikkolaimedu, Tamil Nadu 635802</span>
+            </div>
             <a href="tel:+918940450960" className="flex items-center gap-1.5 hover:text-yellow-300 transition">
               <Phone size={14} />
               <span>+91 8940450960</span>
@@ -29,12 +33,6 @@ const Header = () => {
               <Mail size={14} />
               <span>dhivakarp305@gmail.com</span>
             </a>
-          </div>
-
-          {/* Center */}
-          <div className="flex items-center gap-2 font-medium">
-            <MapPin size={16} className="text-white" />
-            <span>Deliver to: Tirupathur, Tamil Nadu 635602</span>
           </div>
 
           {/* Right */}

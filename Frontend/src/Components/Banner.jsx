@@ -6,7 +6,7 @@ import PageContainer from "./CommenComponents/PageContainer";
 export default function Banner() {
   return (
     <PageContainer>
-    <section className="w-full">
+    <section className="w-full mb-10">
       <div className="max-w-8xl mx-auto">
 
         <div className="relative h-[180px] md:h-[260px] overflow-hidden rounded-2xl shadow-xl">

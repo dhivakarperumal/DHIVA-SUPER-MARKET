@@ -50,7 +50,7 @@ const AdminLayout = () => {
                 </main>
 
                 {/* Footer */}
-                <footer className="text-center py-4 mt-10 text-sm text-slate-700">
+                <footer className="text-center py-4 mt-16 text-sm text-slate-700">
                     © {new Date().getFullYear()} Q-Techx Solutions. All rights reserved.
                 </footer>
 
