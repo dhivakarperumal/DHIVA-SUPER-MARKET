@@ -8,7 +8,7 @@
 }
 
 .admin-root{
-  background: linear-gradient(rgba(248,250,252,0.72), rgba(248,250,252,0.72)), url("/images/adminbg.png") center / cover fixed no-repeat;
+  background: url("/images/adminbg.png") center / cover fixed no-repeat;
 }
 
 .glass-container{
@@ -17,6 +17,14 @@
   border: 1px solid rgba(15,23,42,0.03);
   padding: 20px;
   box-shadow: 0 6px 30px rgba(2,6,23,0.06);
+}
+
+.dashboard-container{
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 .glass-footer{

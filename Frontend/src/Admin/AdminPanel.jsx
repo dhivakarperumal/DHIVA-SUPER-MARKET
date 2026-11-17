@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import "./admin.css";
 
 const AdminLayout = () => {
+    const location = useLocation();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
     const [isLargeScreen, setIsLargeScreen] = useState(
@@ -23,7 +24,7 @@ const AdminLayout = () => {
     }, []);
 
     return (
-        <div className="admin-root flex min-h-screen bg-gray-50 text-slate-900">
+        <div className="admin-root flex min-h-screen text-slate-900">
 
             {/* Sidebar */}
             <Sidebar
@@ -46,7 +47,7 @@ const AdminLayout = () => {
 
                 {/* Page Content */}
                 <main className="flex-1 p-4 sm:p-5 lg:p-6 overflow-y-auto">
-                    <div className="glass-container">
+                    <div className={location.pathname === "/admin" ? "dashboard-container" : "glass-container"}>
                         <Outlet />
                     </div>
                 </main>
