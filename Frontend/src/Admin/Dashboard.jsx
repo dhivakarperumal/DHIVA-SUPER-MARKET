@@ -261,8 +261,8 @@ const Dashboard = () => {
             <Toaster position="top-right" />
 
             {/* ══ PAGE HEADER ══ */}
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-                <div className="relative">
+            <div className="flex min-h-40 items-center rounded-2xl bg-[url('/images/welcomebg.png')] bg-cover bg-left px-6 py-6 sm:min-h-48 sm:bg-center sm:px-8 sm:py-8">
+                <div className="relative max-w-xl">
                     <h1 className="text-2xl font-black text-gray-900 flex items-center gap-2">
                         Hello, Admin! <span>👋</span>
                     </h1>

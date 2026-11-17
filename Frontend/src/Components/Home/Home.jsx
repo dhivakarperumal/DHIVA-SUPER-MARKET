@@ -18,6 +18,9 @@ const Home = () => {
         <Hero />
       </div>
       <div>
+        <Features />
+      </div>
+      <div>
         <CategoryIcon/>
       </div>
       <div>
@@ -37,9 +40,6 @@ const Home = () => {
       </div>
       <div>
         <Banner />
-      </div>
-      <div>
-        <Features/>
       </div>
       {/* <div>
         <VideoSwiper />
