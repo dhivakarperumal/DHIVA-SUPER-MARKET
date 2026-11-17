@@ -28,6 +28,7 @@ const Navbar = () => {
 
   const { user, logout } = useContext(AuthContext);
   const { cart, wishlist, removeFromCart, removeFromWishlist, updateCartQuantity, budgetMode, budgetAmount, updateBudget } = useContext(StoreContext);
+  const displayUserName = user?.username || user?.name;
   const [showBudgetSettings, setShowBudgetSettings] = useState(false);
 
   const [localBudgetMode, setLocalBudgetMode] = useState(budgetMode);
@@ -58,6 +59,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [userMenu, setUserMenu] = useState(false);
   const [logoutConfirm, setLogoutConfirm] = useState(false);
   const [sidebarPanel, setSidebarPanel] = useState(null); // 'cart' | 'wishlist' | null
@@ -138,26 +140,83 @@ const Navbar = () => {
       {/* Top Header - White */}
       <div className="relative z-[80] bg-white border-b border-gray-100 overflow-visible">
         <PageContainer>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 min-h-16 py-2 md:min-h-0 md:py-0">
 
             {/* Logo */}
-            <Link to="/" className="flex-shrink-0 flex items-center justify-between w-full md:w-auto">
-              <img
-                src={logo}
-                alt="Supermarket Logo"
-                className="h-10 md:h-18 object-contain"
-              />
-              {/* Mobile Menu Button */}
-              <button
-                onClick={() => setMobileMenu(!mobileMenu)}
-                className="md:hidden text-green-800"
-              >
-                {mobileMenu ? <X size={28} /> : <Menu size={28} />}
-              </button>
-            </Link>
+            <div className="flex-shrink-0 flex items-center justify-between w-full md:w-auto">
+              <Link to="/" className="flex-shrink-0">
+                <img
+                  src={logo}
+                  alt="Supermarket Logo"
+                  className="h-10 md:h-18 object-contain"
+                />
+              </Link>
+              <div className="flex items-center gap-3 md:hidden">
+                <button
+                  type="button"
+                  onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
+                  className="p-1 text-gray-700"
+                  aria-label={mobileSearchOpen ? "Hide search" : "Show search"}
+                  aria-expanded={mobileSearchOpen}
+                >
+                  <Search size={24} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSidebarPanel("wishlist")}
+                  className="relative p-1 text-gray-700"
+                  aria-label={`Open wishlist${wishlist.length ? `, ${wishlist.length} items` : ""}`}
+                >
+                  <Heart size={24} />
+                  {wishlist.length > 0 && (
+                    <span className="absolute -top-1 -right-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
+                      {wishlist.length}
+                    </span>
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSidebarPanel("cart")}
+                  className="relative p-1 text-gray-700"
+                  aria-label={`Open cart${cart.length ? `, ${cart.length} items` : ""}`}
+                >
+                  <ShoppingCart size={24} />
+                  {cart.length > 0 && (
+                    <span className="absolute -top-1 -right-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-orange-500 px-1 text-[10px] font-bold text-white">
+                      {cart.length}
+                    </span>
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setMobileMenu(!mobileMenu)}
+                  className="text-green-800"
+                  aria-label={mobileMenu ? "Close menu" : "Open menu"}
+                >
+                  {mobileMenu ? (
+                    <X size={28} />
+                  ) : (
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 28 28"
+                      width="28"
+                      height="28"
+                      fill="none"
+                    >
+                      <path
+                        d="M3 6.5h22M3 14h22M8.5 21.5h11"
+                        stroke="currentColor"
+                        strokeWidth="3.5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            </div>
 
             {/* Search Bar */}
-            <div className="flex-1 w-full max-w-3xl flex items-center border-2 border-gray-200 rounded-md overflow-hidden">
+            <div className={`${mobileSearchOpen ? "flex" : "hidden"} md:flex flex-1 w-full max-w-3xl items-center border-2 border-gray-200 rounded-md overflow-hidden`}>
               <input
                 type="text"
                 placeholder="Search for products, brands and more..."
@@ -181,12 +240,18 @@ const Navbar = () => {
                   className="flex items-center gap-3 cursor-pointer group"
                   onClick={() => setUserMenu(!userMenu)}
                 >
-                  <User className="text-gray-700 group-hover:text-green-800 transition" size={26} />
+                  {displayUserName ? (
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-50 text-sm font-bold text-green-800 transition group-hover:bg-green-100">
+                      {displayUserName.trim().charAt(0).toUpperCase()}
+                    </span>
+                  ) : (
+                    <User className="text-gray-700 group-hover:text-green-800 transition" size={26} />
+                  )}
                   <div>
                     <p className="text-sm font-bold text-gray-800 flex items-center gap-1 group-hover:text-green-800 transition">
                       My Account <ChevronDown size={14} className="text-gray-500" />
                     </p>
-                    <p className="text-xs text-gray-500">Hello, {user ? user.username : 'Sign In'}</p>
+                    <p className="text-xs text-gray-500">Hello, {displayUserName || 'Sign In'}</p>
                   </div>
                 </div>
 
