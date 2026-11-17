@@ -735,14 +735,14 @@ const Dashboard = () => {
                 }
             `}</style>
 
-            {/* <div style={{ background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)", borderRadius: 24, padding: "20px 20px 22px", border: "1px solid #e2e8f0", boxShadow: "0 2px 20px rgba(0,0,0,0.04)" }}>
+            <div style={{ background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)", borderRadius: 24, padding: "20px 20px 22px", border: "1px solid #e2e8f0", boxShadow: "0 2px 20px rgba(0,0,0,0.04)" }}>
                 
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
                     <div>
                         <p className="qa-section-title">⚡ Quick Access</p>
                         <p className="qa-section-sub">Jump to any section instantly</p>
                     </div>
-                    <span style={{ fontSize: 11, fontWeight: 700, color: "#64748b", background: "#e2e8f0", borderRadius: 999, padding: "3px 10px" }}>10 shortcuts</span>
+                    <span style={{ fontSize: 11, fontWeight: 700, color: "#64748b", background: "#e2e8f0", borderRadius: 999, padding: "3px 10px" }}>8 shortcuts</span>
                 </div>
 
               
@@ -814,7 +814,7 @@ const Dashboard = () => {
                     
 
                 </div>
-            </div> */}
+            </div>
 
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
 
