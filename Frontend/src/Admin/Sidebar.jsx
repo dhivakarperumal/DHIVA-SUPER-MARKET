@@ -24,9 +24,8 @@ import {
   FileText,
   Wallet,
   Home,
+  Handshake,
 } from "lucide-react";
-
-import { useAuth } from "../PrivateRouter/AuthContext";
 
 // Public assets in Vite should be referenced by absolute path
 const basketImage = "/images/basket.png";
@@ -72,7 +71,7 @@ const navItems = [
     ],
   },
 
-  
+
 
   { path: "/admin/users/all", label: "Customers", icon: Users },
 
@@ -95,27 +94,35 @@ const navItems = [
   //   icon: Handshake,
   //   children: [
   //     // { path: "/admin/dealer", label: "Dashboard", icon: LayoutDashboard },
-      
+
   //     // { path: "/admin/dealer/add", label: "Add Dealer", icon: PlusCircle },
-      
+
   //   ],
   // },
 
   // { path: "/admin/dealer/all", label: "All Dealers", icon: List },
 
-  { path: "/admin/banners", label: "Offers & Discounts", icon: Gift },
-  { path: "/admin/coupons", label: "Coupons", icon: Tag },
-  // { path: "/admin/delivery-charges", label: "Delivery Charges", icon: Truck },
-  { path: "/admin/reports", label: "Reports", icon: BarChart3 },
-  // { path: "/admin/banners", label: "Banners", icon: Image },
-  { path: "/admin/reviews", label: "Reviews", icon: Star },
-  { path: "/admin/videos", label: "Videos Management", icon: Video },
+  {
+    label: "Marketing & Promotions",
+    icon: Handshake,
+    children: [
+      { path: "/admin/banners", label: "Offers & Discounts", icon: Gift },
+      { path: "/admin/top-header-offers", label: "Top Header Offers", icon: Tag },
+      { path: "/admin/coupons", label: "Coupons", icon: Tag },
+      { path: "/admin/reports", label: "Reports", icon: BarChart3 },
+
+      { path: "/admin/reviews", label: "Reviews", icon: Star },
+      { path: "/admin/videos", label: "Videos Management", icon: Video },
+
+    ],
+  },
+
+
   { path: "/", label: "Back to Home", icon: Home },
 ];
 
 /* ================= SIDEBAR ================= */
 const Sidebar = ({ isOpen, onClose, collapsed, onToggleCollapse }) => {
-  const { profileName, email } = useAuth();
   const location = useLocation();
   const sidebarRef = useRef(null);
   const prevActiveRef = useRef(null);
@@ -235,37 +242,37 @@ const Sidebar = ({ isOpen, onClose, collapsed, onToggleCollapse }) => {
               return (
                 <div key={item.label}>
                   <div className="relative group">
-                  <button
-                    type="button"
-                    onClick={() => toggleMenu(item.label)}
-                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleMenu(item.label); }}
-                    title={collapsed ? item.label : undefined}
-                    aria-expanded={isMenuOpen}
-                    aria-controls={`submenu-${item.label.replace(/\s+/g, "-")}`}
-                    aria-haspopup="true"
-                    className={`
+                    <button
+                      type="button"
+                      onClick={() => toggleMenu(item.label)}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleMenu(item.label); }}
+                      title={collapsed ? item.label : undefined}
+                      aria-expanded={isMenuOpen}
+                      aria-controls={`submenu-${item.label.replace(/\s+/g, "-")}`}
+                      aria-haspopup="true"
+                      className={`
                       w-full flex items-center gap-3 rounded-xl transition-all duration-200
                       ${collapsed ? "px-0 py-3 justify-center" : "px-4 py-3"}
                       ${isAnyChildActive
-                        ? "bg-[#3a8b28] text-white"
-                        : "text-gray-300 hover:text-white hover:bg-white/5"
-                      }
+                          ? "bg-[#3a8b28] text-white"
+                          : "text-gray-300 hover:text-white hover:bg-white/5"
+                        }
                     `}
-                  >
-                    <Icon className={`w-5 h-5 shrink-0 ${isAnyChildActive ? "text-white" : "text-gray-400"}`} />
-                    {!collapsed && (
-                      <>
-                        <span className={`flex-1 text-left text-sm font-bold`}>{item.label}</span>
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-200 ${isMenuOpen ? "rotate-180" : ""} ${isAnyChildActive ? "text-white" : "text-gray-400"}`}
-                        />
-                      </>
-                    )}
-                  </button>
+                    >
+                      <Icon className={`w-5 h-5 shrink-0 ${isAnyChildActive ? "text-white" : "text-gray-400"}`} />
+                      {!collapsed && (
+                        <>
+                          <span className={`flex-1 text-left text-sm font-bold`}>{item.label}</span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${isMenuOpen ? "rotate-180" : ""} ${isAnyChildActive ? "text-white" : "text-gray-400"}`}
+                          />
+                        </>
+                      )}
+                    </button>
 
-                  {collapsed && (
-                    <div className="sidebar-tooltip hidden group-hover:block">{item.label}</div>
-                  )}
+                    {collapsed && (
+                      <div className="sidebar-tooltip hidden group-hover:block">{item.label}</div>
+                    )}
                   </div>
 
                   {/* Sub Menu */}
@@ -322,13 +329,13 @@ const Sidebar = ({ isOpen, onClose, collapsed, onToggleCollapse }) => {
                   `}
                 >
                   <div className="flex items-center gap-3">
-                      <Icon className={`w-5 h-5 shrink-0 ${isActive ? "text-white" : "text-gray-400"}`} />
-                      {!collapsed && <span className="text-sm font-bold">{item.label}</span>}
+                    <Icon className={`w-5 h-5 shrink-0 ${isActive ? "text-white" : "text-gray-400"}`} />
+                    {!collapsed && <span className="text-sm font-bold">{item.label}</span>}
                   </div>
                   {!collapsed && item.label === "Orders" && (
-                      <span className="bg-[#249533] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-                          32
-                      </span>
+                    <span className="bg-[#249533] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                      32
+                    </span>
                   )}
                 </NavLink>
 
@@ -340,20 +347,13 @@ const Sidebar = ({ isOpen, onClose, collapsed, onToggleCollapse }) => {
           })}
         </nav>
 
-        {/* ===== BOOST SALES CARD ===== */}
-        
-        {!collapsed && (
-          <div className="mx-4 mb-6 p-2 rounded-xl border border-transparent flex items-center gap-3 bg-transparent cursor-pointer hover:bg-white/5 transition-all">
-            <div className="w-11 h-11 rounded-full bg-gray-200 flex items-center justify-center shrink-0 overflow-hidden border-2 border-[#1b7f29]">
-                <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(profileName || "Admin")}&background=f0faf0&color=3a8b28`} alt={profileName || "Admin"} className="w-full h-full object-cover" />
-            </div>
-            <div className="flex-1 overflow-hidden">
-              <h4 className="text-sm font-bold text-white truncate">{profileName || "Admin"}</h4>
-              <p className="text-[10px] text-gray-400 truncate mt-0.5">{email || "admin@gmail.com"}</p>
-            </div>
-            <ChevronDown className="w-4 h-4 text-gray-400 shrink-0" />
-          </div>
-        )}
+        <div className={`flex shrink-0 justify-center ${collapsed ? "px-2 pb-4" : "px-4 pb-4"}`}>
+          <img
+            src={basketImage}
+            alt="Basket with fresh groceries"
+            className={`object-contain ${collapsed ? "h-12 w-12" : "h-24 w-24"}`}
+          />
+        </div>
 
         {/* ===== COLLAPSE TOGGLE ===== */}
         <button

@@ -12,6 +12,14 @@ import { Toaster } from "react-hot-toast";
 import Loader from "./Components/CommenComponents/Loader.jsx";
 import Combo from "./Components/Pages/Combo.jsx";
 
+if (window.location.pathname === "/admin" && window.location.hash.startsWith("#/")) {
+  window.history.replaceState(
+    window.history.state,
+    "",
+    `/${window.location.search}${window.location.hash}`,
+  );
+}
+
 // Lazy Load Main Components
 const Home = React.lazy(() => import("./Components/Home/Home.jsx"));
 const About = React.lazy(() => import("./Components/Home/About.jsx"));
@@ -47,6 +55,7 @@ const Reviews = React.lazy(() => import("./Admin/Review/Reviews.jsx"));
 const Reports = React.lazy(() => import("./Admin/Report/Reports.jsx"));
 const Settings = React.lazy(() => import("./Admin/Settingss/Settings.jsx"));
 const Coupons = React.lazy(() => import("./Admin/Marketing/Coupons.jsx"));
+const TopHeaderOffers = React.lazy(() => import("./Admin/Marketing/TopHeaderOffers.tsx"));
 const DeliveryCharges = React.lazy(() => import("./Admin/Settingss/DeliveryCharges.jsx"));
 const Profile = React.lazy(() => import("./Admin/Pages/Profile.jsx"));
 const OrderDetail = React.lazy(() => import("./Admin/Orders/OrderDetail.jsx"));
@@ -182,6 +191,7 @@ const router = createHashRouter([
       { path: "reports", element: <Reports /> },
       { path: "videos", element: <VideoManagement /> },
       { path: "banners", element: <BannerManagement /> },
+      { path: "top-header-offers", element: <TopHeaderOffers /> },
       { path: "coupons", element: <Coupons /> },
       { path: "delivery-charges", element: <DeliveryCharges /> },
       { path: "settings", element: <Settings /> },

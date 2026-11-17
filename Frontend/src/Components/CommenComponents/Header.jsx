@@ -1,6 +1,7 @@
 import React from "react";
 import {
-  Truck,
+  Phone,
+  Mail,
   MapPin,
   Headphones,
   PackageCheck,
@@ -19,9 +20,15 @@ const Header = () => {
         <div className="h-8 flex items-center justify-between">
 
           {/* Left */}
-          <div className="flex items-center gap-2 font-medium">
-            <Truck size={16} className="text-yellow-400" />
-            <span>Free Delivery on orders above ₹499</span>
+          <div className="flex items-center gap-4 font-medium">
+            <a href="tel:+918940450960" className="flex items-center gap-1.5 hover:text-yellow-300 transition">
+              <Phone size={14} />
+              <span>+91 8940450960</span>
+            </a>
+            <a href="mailto:dhivakarp305@gmail.com" className="flex items-center gap-1.5 hover:text-yellow-300 transition">
+              <Mail size={14} />
+              <span>dhivakarp305@gmail.com</span>
+            </a>
           </div>
 
           {/* Center */}

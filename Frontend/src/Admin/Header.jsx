@@ -51,6 +51,7 @@ const pageTitles = {
   "/admin/settings/profile": "Profile",
   "/admin/delivery-charges": "Delivery Charges",
   "/admin/coupons": "Coupons",
+  "/admin/top-header-offers": "Top Header Offers",
   "/admin/banners": "Banners",
   "/admin/staff/salary": "Salary Management",
   "/admin/staff/leave": "Leave Management",

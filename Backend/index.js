@@ -7,13 +7,14 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const db = require("./src/config/db");
 const als = require("./src/config/context");
-const { createCategoryTable, createProductTable } = require("./src/config/initDatabase");
+const { createCategoryTable, createProductTable, createOffersTable } = require("./src/config/initDatabase");
 
 // ── Initialize DB tables once at startup (not on every request) ───────────
 (async () => {
   try {
     await createCategoryTable();
     await createProductTable();
+    await createOffersTable();
     console.log("✅ Database tables initialized successfully");
   } catch (err) {
     console.error("❌ Database table initialization failed:", err.message || err);
@@ -282,6 +283,7 @@ const bannersRouter = require('./src/routers/bannersRouter');
 const cartRouter = require('./src/routers/cartRouter');
 const categoriesRouter = require('./src/routers/categoriesRouter');
 const couponsRouter = require('./src/routers/couponsRouter');
+const offersRouter = require('./src/routers/offersRouter');
 const dashboardRouter = require('./src/routers/dashboardRouter');
 const dealersRouter = require('./src/routers/dealersRouter');
 const deliveryChargesRouter = require('./src/routers/deliveryChargesRouter');
@@ -307,6 +309,7 @@ app.use('/api/banners', bannersRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/categories', categoriesRouter);
 app.use('/api/coupons', couponsRouter);
+app.use('/api/offers', offersRouter);
 app.use('/api/dashboard', dashboardRouter);
 app.use('/api/dealers', dealersRouter);
 app.use('/api/deliveryCharges', deliveryChargesRouter);

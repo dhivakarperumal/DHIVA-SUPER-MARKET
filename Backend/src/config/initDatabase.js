@@ -80,4 +80,25 @@ const createProductTable = async () => {
   }
 };
 
-module.exports = { createCategoryTable, createProductTable };
+const createOffersTable = async () => {
+  const connection = await pool.getConnection();
+  try {
+    await connection.query(`
+      CREATE TABLE IF NOT EXISTS offers (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(160) NOT NULL,
+        offer_percentage DECIMAL(5,2) NOT NULL,
+        description TEXT DEFAULT '',
+        icon VARCHAR(50) NOT NULL DEFAULT 'Tag',
+        status ENUM('active', 'inactive') NOT NULL DEFAULT 'active',
+        show_in_header TINYINT(1) NOT NULL DEFAULT 0,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `);
+  } finally {
+    connection.release();
+  }
+};
+
+module.exports = { createCategoryTable, createProductTable, createOffersTable };
