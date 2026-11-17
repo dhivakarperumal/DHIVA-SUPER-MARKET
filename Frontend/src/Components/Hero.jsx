@@ -109,7 +109,7 @@ export default function HeroSlider() {
                                         </div>
 
                                         {/* Animated Main Title with Word-by-word Effect */}
-                                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-tight mb-6 md:mb-8 drop-shadow-2xl opacity-0" style={{ animation: 'slideInLeft 0.8s ease-out 0.3s forwards' }}>
+                                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6 md:mb-8 drop-shadow-2xl opacity-0" style={{ animation: 'slideInLeft 0.8s ease-out 0.3s forwards' }}>
                                             {slide.title}
                                         </h1>
 
@@ -145,21 +145,6 @@ export default function HeroSlider() {
                                             </Link>
                                         </div>
 
-                                        {/* Stats Row with Animation */}
-                                        <div className="mt-12 grid grid-cols-3 gap-6 opacity-0" style={{ animation: 'slideInUp 0.8s ease-out 0.9s forwards' }}>
-                                            <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-lg p-3 sm:p-4">
-                                                <p className="text-2xl sm:text-3xl font-black text-green-400">2M+</p>
-                                                <p className="text-xs sm:text-sm text-gray-200 mt-1">Products</p>
-                                            </div>
-                                            <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-lg p-3 sm:p-4">
-                                                <p className="text-2xl sm:text-3xl font-black text-amber-300">24/7</p>
-                                                <p className="text-xs sm:text-sm text-gray-200 mt-1">Delivery</p>
-                                            </div>
-                                            <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-lg p-3 sm:p-4">
-                                                <p className="text-2xl sm:text-3xl font-black text-green-400">₹499</p>
-                                                <p className="text-xs sm:text-sm text-gray-200 mt-1">Free Above</p>
-                                            </div>
-                                        </div>
                                     </div>
                                 </PageContainer>
                             </div>
@@ -181,16 +166,6 @@ export default function HeroSlider() {
                     to {
                         opacity: 1;
                         transform: translateX(0);
-                    }
-                }
-                @keyframes slideInUp {
-                    from {
-                        opacity: 0;
-                        transform: translateY(30px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
                     }
                 }
                 @keyframes fadeIn {
