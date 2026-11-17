@@ -19,14 +19,6 @@
   box-shadow: 0 6px 30px rgba(2,6,23,0.06);
 }
 
-.dashboard-container{
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-}
-
 .glass-footer{
   background: linear-gradient(90deg, rgba(27,127,41,0.95), rgba(89,195,63,0.95));
 }
