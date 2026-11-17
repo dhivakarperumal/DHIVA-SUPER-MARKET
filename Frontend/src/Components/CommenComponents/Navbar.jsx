@@ -135,7 +135,7 @@ const Navbar = () => {
   const isUnderBudget = budgetMode && cartTotal < budgetAmount;
 
   return (
-    <div className="sticky top-0 z-40 bg-white pt-1 border-b border-gray-100">
+    <div className="sticky top-0 z-40 mt-2 bg-white pt-1 border-b border-gray-100 md:mt-0">
 
       {/* Top Header - White */}
       <div className="relative z-[80] bg-white border-b border-gray-100 overflow-visible">
@@ -1107,18 +1107,23 @@ const Navbar = () => {
         <div className="fixed inset-0 z-[100] md:hidden">
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setMobileMenu(false)} />
 
-          <div className="absolute top-0 left-0 h-full w-[85%] max-w-[320px] bg-white shadow-2xl overflow-y-auto flex flex-col">
-
-            {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between px-5 py-4 bg-green-800 text-white">
-              <div className="flex items-center gap-3">
-                <User size={24} />
-                <div>
-                  <h3 className="font-bold text-sm">{user ? user.username : 'Guest'}</h3>
-                  <p className="text-xs text-green-200">{user ? 'My Account' : 'Sign in to sync'}</p>
-                </div>
-              </div>
-              <X size={24} className="cursor-pointer" onClick={() => setMobileMenu(false)} />
+          <div className="absolute inset-0 h-full w-full bg-white shadow-2xl overflow-y-auto flex flex-col">
+            <div className="flex items-center justify-between px-4 py-2">
+              <Link to="/" onClick={() => setMobileMenu(false)}>
+                <img
+                  src={logo}
+                  alt="Supermarket Logo"
+                  className="h-[50px] w-[150px] object-contain"
+                />
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMobileMenu(false)}
+                className="p-2 text-gray-700"
+                aria-label="Close menu"
+              >
+                <X size={24} />
+              </button>
             </div>
 
             <div className="flex-1 overflow-y-auto">
