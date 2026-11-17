@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import api from "../../../api";
+import api from "../../api";
 import { FiShoppingBag, FiPlus, FiSearch, FiX, FiCheck, FiEye, FiDownload, FiFilter, FiUpload, FiFileText } from "react-icons/fi";
 import { toast } from "react-hot-toast";
 import * as XLSX from "xlsx";

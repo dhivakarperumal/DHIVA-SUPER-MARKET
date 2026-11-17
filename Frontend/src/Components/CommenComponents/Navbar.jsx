@@ -176,7 +176,7 @@ const Navbar = () => {
             <div className="hidden md:flex items-center gap-8 flex-shrink-0">
 
               {/* Account Dropdown */}
-              <div className="relative" ref={menuRef}>
+              <div className="relative order-last" ref={menuRef}>
                 <div
                   className="flex items-center gap-3 cursor-pointer group"
                   onClick={() => setUserMenu(!userMenu)}

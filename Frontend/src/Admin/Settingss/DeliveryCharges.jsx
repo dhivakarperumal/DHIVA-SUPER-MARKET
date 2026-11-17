@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Coupons.css";
+import "../Marketing/Coupons.css";
 import { Truck, Save, RotateCcw, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api";

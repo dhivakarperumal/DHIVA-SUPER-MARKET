@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import api from "../../../api";
+import api from "../../api";
 import {
   FiShoppingBag, FiTrendingUp, FiUsers, FiClock,
   FiCheckCircle, FiAlertCircle, FiDollarSign, FiRefreshCw,
