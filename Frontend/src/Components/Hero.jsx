@@ -58,7 +58,7 @@ export default function HeroSlider() {
 
 
     return (
-        <section className="w-full h-[75vh] md:h-[78vh] overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 relative">
+        <section className="w-full h-[78vh] md:h-[82vh] overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 relative">
             <Swiper
                 modules={[Autoplay, EffectFade]}
                 effect="fade"
@@ -91,7 +91,7 @@ export default function HeroSlider() {
                             {/* Advanced Multi-layer Overlay with Glass Effect */}
                             <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
                             <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60"></div>
-                            <div className="absolute inset-0 backdrop-blur-sm opacity-5"></div>
+                            <div className="absolute inset-0 bg-black/[0.03] backdrop-blur-[1px]"></div>
 
                             {/* Animated Mesh Background Elements */}
                             <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-green-500/20 to-transparent rounded-full blur-3xl opacity-0 animate-fade-in-out" style={{ animationDelay: '0s', animation: 'fadeInOut 6s ease-in-out infinite' }}></div>
@@ -109,7 +109,7 @@ export default function HeroSlider() {
                                         </div>
 
                                         {/* Animated Main Title with Word-by-word Effect */}
-                                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6 md:mb-8 drop-shadow-2xl opacity-0" style={{ animation: 'slideInLeft 0.8s ease-out 0.3s forwards' }}>
+                                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight mb-6 md:mb-8 drop-shadow-2xl opacity-0" style={{ animation: 'slideInLeft 0.8s ease-out 0.3s forwards' }}>
                                             {slide.title}
                                         </h1>
 
